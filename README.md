@@ -1,14 +1,4 @@
-docker compose up -d db api
-docker compose run --rm extension-build
-docker compose exec api pytest
-
-cd extension
-npm i
-npm run test
-npm run build
-
-
-# 📘 History Panel
+# History Panel
 
 ## Overview
 **History Panel** is a full-stack web monitoring and analytics tool built around:
@@ -49,7 +39,7 @@ history-panel/
 
 ---
 
-## ⚙️ Backend Setup (FastAPI)
+## Backend Setup (FastAPI)
 
 ### 1. Clone the repository
 ```bash
@@ -111,7 +101,7 @@ You’ll now see the **History Sidepanel** extension active.
 
 ---
 
-## 🧪 Running Tests
+## Running Tests
 
 ### Backend (Pytest + FactoryBoy)
 ```bash
@@ -128,7 +118,7 @@ npm run test:run
 
 ---
 
-## 🧰 Linting & Formatting
+## Linting & Formatting
 
 ### Backend
 ```bash
@@ -150,7 +140,7 @@ npm run lint
 
 ---
 
-## 🧩 Continuous Integration (GitHub Actions)
+## Continuous Integration (GitHub Actions)
 
 Every push or pull request runs both:
 - ✅ **Backend** tests + lint + format check
@@ -184,7 +174,7 @@ Results appear under the **Actions** tab in GitHub.
 
 ---
 
-## 🧑‍💻 Development Tips
+## Development Tips
 
 - Run **backend locally**:
   ```bash
@@ -195,7 +185,7 @@ Results appear under the **Actions** tab in GitHub.
 
 ---
 
-## 🏁 Summary
+## Summary
 
 ✅ **Backend:** FastAPI + SQLAlchemy + Pytest  
 ✅ **Frontend:** React + Vite + Tailwind + Jest  
