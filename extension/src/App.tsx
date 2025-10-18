@@ -1,6 +1,6 @@
 import './App.css'
 import { useEffect, useState } from 'react'
-import { getMetrics, listVisits, getSeries, type Visit } from './lib/api'
+import { getMetrics, listVisits, getSeries, type Visit } from './util/api'
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
 
 function App() {

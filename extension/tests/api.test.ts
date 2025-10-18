@@ -1,4 +1,4 @@
-import { listVisits, getSeries, getMetrics } from '../src/lib/api'
+import { listVisits, getSeries, getMetrics } from '../src/util/api'
 
 describe('lib/api', () => {
   const url = 'https://example.com/page'
