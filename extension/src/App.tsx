@@ -2,6 +2,7 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import { getMetrics, listVisits, getSeries, type Visit } from './util/api'
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
+import type { RuntimeMessage } from './types/messages'
 
 function App() {
   const [url, setUrl] = useState('')
@@ -14,7 +15,7 @@ function App() {
   const [error, setError] = useState('')
 
   useEffect(() => {
-    const handler = (msg: any) => {
+    const handler = (msg: RuntimeMessage) => {
       if (msg?.type === 'ACTIVE_URL') setUrl(msg.url as string)
     }
     chrome.runtime.onMessage.addListener(handler)
@@ -45,8 +46,8 @@ function App() {
       setMeta(list.meta || null);
       setSeries(s.points || []);
       setError('')
-    } catch (e: any) {
-      setError(e?.message || 'Failed to load')
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : 'Failed to load')
     }
   }
 

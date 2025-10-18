@@ -20,4 +20,26 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+
+  {
+    files: [
+      '**/*.test.{ts,tsx}',
+      '**/*.tests.{ts,tsx}',
+      '**/__tests__/**/*.{ts,tsx}',
+      '**/tests/**/*.{ts,tsx}',
+      '**/setupTests.ts',
+      'extension/tests/**/*.{ts,tsx}',
+    ],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.jest,
+        chrome: 'writable',
+      },
+    },
+  },
 ])

@@ -123,9 +123,9 @@ async function sendMetricsIfNeeded() {
 
 // For SPA navigations: when URL changes without reload, treat as a new visit
 function hookSpaNavigation() {
-  const origPushState = history.pushState;
-  history.pushState = function (...args) {
-    const ret = origPushState.apply(this, args as any);
+  const origPushState = history.pushState.bind(history);
+  history.pushState = function (...args: Parameters<History['pushState']>) {
+    const ret = origPushState(...args);
     sendMetricsIfNeeded();
     return ret;
   };
