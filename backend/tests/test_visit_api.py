@@ -29,9 +29,7 @@ async def test_store_visit_info_and_get_history(client, visit_payload):
     assert body2["data"]["link_count"] == 11
 
     # GET history (now returns wrapped data with items + meta)
-    rh = await client.get(
-        "/api/visit", params={"url": url, "page": 1, "page_size": 50}
-    )
+    rh = await client.get("/api/visit", params={"url": url, "page": 1, "page_size": 50})
     assert rh.status_code == 200
     hist = rh.json()
     assert hist["status"] == "ok"
@@ -99,6 +97,7 @@ async def test_get_visit_series(client, visit_payload):
     assert len(points) == 2
     counts = sorted([p["count"] for p in points])
     assert counts == [1, 2]
+
 
 @pytest.mark.asyncio
 async def test_health_check(client):

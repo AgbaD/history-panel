@@ -69,6 +69,7 @@ async def store_visit_info(
         "page metrics added successfully", data=map_visit(resp)
     )
 
+
 @visitRouter.get("/health", response_model=ResponseSchema)
 async def health_check():
     return ResponseService.ok("service ok")
