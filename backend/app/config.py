@@ -9,7 +9,9 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    DATABASE_URL: str = Field(default="sqlite+aiosqlite:///:memory:", alias="DATABASE_URL")
+    DATABASE_URL: str = Field(
+        default="sqlite+aiosqlite:///:memory:", alias="DATABASE_URL"
+    )
     POSTGRES_DB: str = Field(default="history", alias="POSTGRES_DB")
     POSTGRES_USER: str = Field(default="postgres", alias="POSTGRES_USER")
     POSTGRES_PASSWORD: str = Field(default="postgres", alias="POSTGRES_PASSWORD")
