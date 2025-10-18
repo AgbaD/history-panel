@@ -75,11 +75,8 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      # Optional: typecheck or build if you want
-      # - name: Typecheck
-      #   run: npx tsc -p tsconfig.app.json --noEmit
-      # - name: Build
-      #   run: npm run build
+      - name: Lint
+        run: npm run lint
 
       - name: Run Jest
         env:

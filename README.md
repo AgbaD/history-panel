@@ -136,6 +136,13 @@ ruff check .
 black --check .
 ```
 
+OR
+
+```bash
+docker compose exec api ruff check .
+docker compose exec api black --check .
+```
+
 ### Frontend
 ```bash
 npm run lint
