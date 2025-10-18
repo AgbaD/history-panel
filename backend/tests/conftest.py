@@ -27,7 +27,7 @@ async def async_engine():
         "sqlite+aiosqlite:///:memory:",
         echo=False,
         future=True,
-        poolclass=StaticPool,  # keep same connection for in-memory DB
+        poolclass=StaticPool,
     )
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
@@ -60,7 +60,6 @@ def app(async_session) -> FastAPI:
 
 @pytest.fixture
 async def client(app):
-    # Ensures FastAPI startup/shutdown events run
     async with LifespanManager(app):
         transport = ASGITransport(app=app)
         async with AsyncClient(transport=transport, base_url="http://test") as ac:

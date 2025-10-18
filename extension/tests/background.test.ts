@@ -1,4 +1,3 @@
-// Import the script to register listeners.
 import '../src/background/background'
 
 describe('background script', () => {

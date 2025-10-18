@@ -1,8 +1,6 @@
 const VISIT_ENDPOINT = 'http://localhost:8000/api/visit'
 
-// Helper to import content AFTER DOM is set up
 const loadContent = async () => {
-  // isolateModules ensures a fresh module instance each time
   await jest.isolateModulesAsync(async () => {
     await import('../src/content/content')
   })
@@ -20,7 +18,6 @@ describe('content script', () => {
       </div>
     `
     localStorage.clear()
-    // reset fetch spy between tests if you override it
     jest.restoreAllMocks()
   })
 

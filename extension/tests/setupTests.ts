@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom'
 import 'whatwg-fetch'
 
-// ---- Chrome API mock (only what you use) ----
 const chromeMock: any = {
   action: {
     onClicked: { addListener: jest.fn() },
@@ -28,7 +27,6 @@ Object.defineProperty(global, 'chrome', {
   writable: false,
 })
 
-// ---- JSDOM shims Recharts sometimes needs ----
 class RO {
   observe() {}
   unobserve() {}
@@ -50,8 +48,6 @@ Object.defineProperty(window, 'matchMedia', {
   }),
 })
 
-// ---- Global fetch stub (covers all endpoints you call) ----
-// You can tweak the data shapes if your backend responses change.
 beforeEach(() => {
   jest.spyOn(global, 'fetch').mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
     const url = input.toString()
